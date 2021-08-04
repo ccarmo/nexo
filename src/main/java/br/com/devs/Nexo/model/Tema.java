@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -22,13 +23,18 @@ public class Tema {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
     
-	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("tema")
+	@OneToMany(mappedBy = "postagemTema", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("postagemTema")
 	private List<Postagem> listaPostagem;
+			
+	@ManyToOne
+	@JsonIgnoreProperties("tema")
+	private Usuario usuario;
 	
     @NotBlank
     @Size(min = 5, max = 100)
 	private String nomeTema;
+    
 
 	public Long getId() {
 		return id;
@@ -52,6 +58,14 @@ public class Tema {
 
 	public void setListaPostagem(List<Postagem> listaPostagem) {
 		this.listaPostagem = listaPostagem;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
     
