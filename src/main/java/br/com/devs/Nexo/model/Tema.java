@@ -18,7 +18,7 @@ public class Tema {
     
     @NotBlank
     @Size(min = 5, max = 100)
-	private String nome_tema;
+	private String nomeTema;
 
 	public Long getId() {
 		return id;
@@ -28,12 +28,12 @@ public class Tema {
 		this.id = id;
 	}
 
-	public String getNome_tema() {
-		return nome_tema;
+	public String getNomeTema() {
+		return nomeTema;
 	}
 
-	public void setNome_tema(String nome_tema) {
-		this.nome_tema = nome_tema;
+	public void setNomeTema(String nomeTema) {
+		this.nomeTema = nomeTema;
 	}
 	
     
