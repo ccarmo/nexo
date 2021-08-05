@@ -2,7 +2,7 @@ package br.com.devs.Nexo.model;
 
 import java.util.Date;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -36,7 +36,11 @@ public class Postagem {
 		
 		@ManyToOne
 		@JsonIgnoreProperties("listaPostagem")
-		private Tema tema;
+		private Tema postagemTema;
+		
+		@ManyToOne
+		@JsonIgnoreProperties("postagem")
+		private Usuario postagemUsuario;
 
 		public long getId_postagem() {
 			return id_postagem;
@@ -70,12 +74,20 @@ public class Postagem {
 			this.data = data;
 		}
 
-		public Tema getTema() {
-			return tema;
+		public Usuario getPostagemUsuario() {
+			return postagemUsuario;
 		}
 
-		public void setTema(Tema tema) {
-			this.tema = tema;
+		public void setPostagemUsuario(Usuario postagemUsuario) {
+			this.postagemUsuario = postagemUsuario;
+		}
+
+		public Tema getPostagemTema() {
+			return postagemTema;
+		}
+
+		public void setPostagemTema(Tema postagemTema) {
+			this.postagemTema = postagemTema;
 		}
 		
 		
