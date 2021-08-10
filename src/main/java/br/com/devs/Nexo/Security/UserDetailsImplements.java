@@ -2,24 +2,20 @@ package br.com.devs.Nexo.Security;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.blogpessoal.Turma28.modelos.Usuario;
+import br.com.devs.Nexo.model.Usuario;
+import br.com.devs.Nexo.model.UsuarioDTO;
 
-public class UserDatailsImplements implements UserDetails {
+public class UserDetailsImplements implements UserDetails {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	
 	private String email;
 	private String senha;
 	private List<GrantedAuthority> authorities;
-	
-	public UserDatailsImplements(Usuario usuario) {
+
+	public UserDetailsImplements(Usuario usuario) {
 		this.email = usuario.getEmail();
 		this.senha = usuario.getSenha();
 	}

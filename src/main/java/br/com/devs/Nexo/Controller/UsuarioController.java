@@ -1,11 +1,7 @@
 package br.com.devs.Nexo.Controller;
-
-<<<<<<< HEAD
 import java.util.List;
 import java.util.Optional;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,12 +13,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+import br.com.devs.Nexo.Repository.UsuarioRepository;
+import br.com.devs.Nexo.Services.UsuarioServices;
 import br.com.devs.Nexo.model.Usuario;
+import br.com.devs.Nexo.model.UsuarioDTO;
 
 
 @RestController
-@RequestMapping("/api/v1/usuario")
+@RequestMapping("/usuario")
 public class UsuarioController {
 
 	@Autowired
@@ -31,7 +29,7 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioServices servicos;
 
-	@PostMapping("/salvar")
+	@PostMapping("/cadastrar")
 	public ResponseEntity<Object> cadastrarUsuario(@Valid @RequestBody Usuario novoUsuario) {
 		Optional<Object> objetoCadastrado = servicos.cadastrarUsuario(novoUsuario);
 
@@ -43,7 +41,7 @@ public class UsuarioController {
 
 	}
 
-	@PutMapping("/autenticar")
+	@PutMapping("/entrar")
 	public ResponseEntity<Object> pegarCredenciais(@Valid @RequestBody UsuarioDTO loginSenha) {
 		Optional<?> objetoCredenciado = servicos.pegarCredenciais(loginSenha);
 
@@ -97,11 +95,5 @@ public class UsuarioController {
 		} else {
 			return ResponseEntity.status(400).build();
 		}
-		
 	}
-
-=======
-public class UsuarioController {
-
->>>>>>> 22a22ac235e7672bd5b530e4f31fe64903524170
 }

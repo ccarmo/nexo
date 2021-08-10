@@ -1,31 +1,22 @@
 package br.com.devs.Nexo.Services;
 
 import java.nio.charset.Charset;
+
 import java.util.Optional;
 
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import com.blogpessoal.Turma28.modelos.Usuario;
-import com.blogpessoal.Turma28.modelos.UsuarioDTO;
-import com.blogpessoal.Turma28.repositorios.UsuarioRepositorio;
+import br.com.devs.Nexo.model.Usuario;
+import br.com.devs.Nexo.model.UsuarioDTO;
+import br.com.devs.Nexo.Repository.UsuarioRepository;
 
 @Service
 public class UsuarioServices {
 
-	private @Autowired UsuarioRepositorio repositorio;
+	private @Autowired UsuarioRepository repositorio;
 
-	/**
-	 * Método utilizado para cadastrar um usuario no banco de dados, o mesmo é
-	 * responsavel por retornar vazio caso Usuario exista
-	 * 
-	 * @param novoUsuario do tipo Usuario
-	 * @return Usuario Criado quando não existir no banco
-	 * @since 1.0
-	 * @author Turma 28
-	 */
 	public Optional<Object> cadastrarUsuario(Usuario novoUsuario) {
 		return repositorio.findByEmail(novoUsuario.getEmail()).map(usuarioExistente -> {
 			return Optional.empty();
@@ -37,15 +28,7 @@ public class UsuarioServices {
 		});
 	}
 
-	/**
-	 * Método utilizado para cadastrar um usuario no banco de dados, o mesmo é
-	 * responsavel por retornar vazio caso Usuario exista
-	 * 
-	 * @param novoUsuario do tipo Usuario
-	 * @return Usuario Criado quando não existir no banco
-	 * @since 1.5
-	 * @author Baby
-	 */
+
 	public Optional<Object> cadastrarUsuario2(Usuario novoUsuario) {
 		Optional<Usuario> usuario = repositorio.findByEmail(novoUsuario.getEmail());
 		if (usuario.isPresent()) {
@@ -58,28 +41,17 @@ public class UsuarioServices {
 		}
 	}
 
-	/**
-	 * Metodo utilizado para pegar credenciais do usuario com Tokem (Formato Basic),
-	 * este método sera utilizado para retornar ao front o token utilizado para ter
-	 * acesso aos dados do usuario e mantelo logado no sistema
-	 * 
-	 * @param usuarioParaAutenticar do tipo UsuarioLoginDTO necessario email e senha
-	 *                              para validar
-	 * @return UsuarioLoginDTO preenchido com informações mais o Token
-	 * @since 1.0
-	 * @author Turma 28
-	 */
-	public Optional<?> pegarCredenciais(br.com.devs.Nexo.model.UsuarioDTO usuarioParaAutenticar) {
+	public Optional<?> pegarCredenciais(UsuarioDTO usuarioParaAutenticar) {
 		return repositorio.findByEmail(usuarioParaAutenticar.getEmail()).map(usuarioExistente -> {
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
 			if (encoder.matches(usuarioParaAutenticar.getSenha(), usuarioExistente.getSenha())) {
-				String estruturaBasic = usuarioParaAutenticar.getEmail() + ":" + usuarioParaAutenticar.getSenha(); // gustavoboaz@gmail.com:134652
-				byte[] autorizacaoBase64 = Base64.encodeBase64(estruturaBasic.getBytes(Charset.forName("US-ASCII"))); // hHJyigo-o+i7%0ÍUG465sas=-
-				String autorizacaoHeader = "Basic " + new String(autorizacaoBase64); // Basic hHJyigo-o+i7%0ÍUG465sas=-
+				String estruturaBasic = usuarioParaAutenticar.getEmail() + ":" + usuarioParaAutenticar.getSenha(); 
+				byte[] autorizacaoBase64 = Base64.encodeBase64(estruturaBasic.getBytes(Charset.forName("US-ASCII"))); 
+				String autorizacaoHeader = "Basic " + new String(autorizacaoBase64);
 
 				usuarioParaAutenticar.setToken(autorizacaoHeader);
-				usuarioParaAutenticar.setId(usuarioExistente.getId());
+				usuarioParaAutenticar.setId(usuarioExistente.getId_usuario());
 				usuarioParaAutenticar.setNome(usuarioExistente.getNome());
 				usuarioParaAutenticar.setSenha(usuarioExistente.getSenha());
 				return Optional.ofNullable(usuarioParaAutenticar);
@@ -91,17 +63,7 @@ public class UsuarioServices {
 		});
 	}
 
-	/**
-	 * Metodo utilizado para alterar um usuario fornecido pelo FRONT, O mesmo
-	 * retorna um Optional com entidade Usuario dentro e senha criptografada. Caso
-	 * falho retorna um Optional.empty()
-	 * 
-	 * @param usuarioParaAlterar do tipo Usuario
-	 * @return Optional com Usuario Alterado
-	 * @since 1.0
-	 * @author Turma 28
-	 */
-	public Optional<?> alterarUsuario(br.com.devs.Nexo.model.UsuarioDTO usuarioParaAlterar) {
+	public Optional<?> alterarUsuario(UsuarioDTO usuarioParaAlterar) {
 		return repositorio.findById(usuarioParaAlterar.getId()).map(usuarioExistente -> {
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 			String senhaCriptografada = encoder.encode(usuarioParaAlterar.getSenha());
