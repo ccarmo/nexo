@@ -1,5 +1,6 @@
 package br.com.devs.Nexo.Controller;
 
+<<<<<<< HEAD
 import java.util.List;
 import java.util.Optional;
 
@@ -99,4 +100,8 @@ public class UsuarioController {
 		
 	}
 
+=======
+public class UsuarioController {
+
+>>>>>>> 22a22ac235e7672bd5b530e4f31fe64903524170
 }
