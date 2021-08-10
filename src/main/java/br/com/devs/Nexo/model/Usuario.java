@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,9 +13,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import br.com.devs.Nexo.model.utilidades.TipoUsuario;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -50,8 +55,7 @@ public class Usuario {
 	private List<Tema> tema;
 
 	public Usuario(Long id_usuario, String nome, int idade, float renda_familiar, String ramo_empresa, String email,
-	String senha)
-	{
+			String senha) {
 		super();
 		this.id_usuario = id_usuario;
 		this.nome = nome;
@@ -62,7 +66,15 @@ public class Usuario {
 		this.senha = senha;
 	}
 
+	@Deprecated // Método utilizado pelo Hibernate
+	public Usuario() {
+		super();
+	}
+
 	/* private enum tipo {empresa,candidato} */
+	@NotNull(message = "Necessario definir tipo EMPRESA ou CANDIDATO")
+	@Enumerated(EnumType.STRING)
+	private TipoUsuario tipo;
 
 	public Long getId_usuario() {
 		return id_usuario;
@@ -134,6 +146,14 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public TipoUsuario getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoUsuario tipo) {
+		this.tipo = tipo;
 	}
 
 }

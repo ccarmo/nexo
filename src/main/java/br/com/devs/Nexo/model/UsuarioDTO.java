@@ -2,14 +2,14 @@ package br.com.devs.Nexo.model;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import br.com.devs.Nexo.model.utilidades.TipoUsuario;
 
 public class UsuarioDTO {
 
-	@NotNull
 	private Long id;
-	
+
 	private String nome;
 
 	@NotBlank(message = "Necessario Email")
@@ -20,6 +20,16 @@ public class UsuarioDTO {
 	private String senha;
 
 	private String token;
+
+	private TipoUsuario tipo;
+
+	public TipoUsuario getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoUsuario tipo) {
+		this.tipo = tipo;
+	}
 
 	public Long getId() {
 		return id;

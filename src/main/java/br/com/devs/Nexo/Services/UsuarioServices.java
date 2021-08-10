@@ -54,6 +54,7 @@ public class UsuarioServices {
 				usuarioParaAutenticar.setId(usuarioExistente.getId_usuario());
 				usuarioParaAutenticar.setNome(usuarioExistente.getNome());
 				usuarioParaAutenticar.setSenha(usuarioExistente.getSenha());
+				usuarioParaAutenticar.setTipo(usuarioExistente.getTipo());
 				return Optional.ofNullable(usuarioParaAutenticar);
 			} else {
 				return Optional.empty();
