@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -22,18 +24,26 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_usuario;
 	
-	@NotNull
+	@NotBlank(message =  "Digite seu nome :") 
 	@Size(min = 5, max = 100)
 	private String nome;
 	
-	@NotNull
+	
 	private int idade;
 	
-	@NotNull
+	
 	private Float  renda_familiar;
 	
-	@NotNull
+	
 	private String ramo_empresa;
+	
+	@NotBlank 
+	@Email(message = "Digite seu email :")
+	private String email;
+	
+	@NotBlank
+	@Size (min = 6 , max = 100)
+	private String senha;
 	
 	@OneToMany(mappedBy = "postagemUsuario", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties ("postagemUsuario")
@@ -42,6 +52,7 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties ("usuario")
 	private List<Tema> tema;
+	
 	
 	
 	/*private enum  tipo {empresa,candidato}*/
@@ -90,7 +101,18 @@ public class Usuario {
 		this.tema = tema;
 	}
 	
-	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 	
 	
 	
