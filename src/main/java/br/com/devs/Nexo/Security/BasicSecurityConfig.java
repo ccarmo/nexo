@@ -11,6 +11,13 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/**
+ * Classe utilizada para criptografia da senha digitada pelo usuário.
+ * 
+ * @since 1.0
+ * @author Felipe Gusstavo.
+ */
+
 @EnableWebSecurity
 public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 

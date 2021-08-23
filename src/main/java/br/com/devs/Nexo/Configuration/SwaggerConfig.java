@@ -1,6 +1,5 @@
 package br.com.devs.Nexo.Configuration;
 
-import java.util.List;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -14,6 +13,13 @@ import springfox.documentation.service.Response;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import java.util.ArrayList;
+
+/**
+ * Classe de configuração do Swagger API.
+ * 
+ * @author Bianca Campos
+ *
+ */
 
 @Configuration
 public class SwaggerConfig {

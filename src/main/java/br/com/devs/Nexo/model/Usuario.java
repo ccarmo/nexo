@@ -1,7 +1,6 @@
 package br.com.devs.Nexo.model;
 
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -15,10 +14,15 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import br.com.devs.Nexo.model.utilidades.TipoUsuario;
+
+/**
+ * Classe Usuario utilizada como entidade para registrar usuarios no Banco de dados.
+ * @since 1.0
+ * @author Carlos Henrique
+ *
+ */
 
 @Entity
 @Table(name = "tb_usuario")
