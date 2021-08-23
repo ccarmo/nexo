@@ -18,6 +18,14 @@ import br.com.devs.Nexo.Services.UsuarioServices;
 import br.com.devs.Nexo.model.Usuario;
 import br.com.devs.Nexo.model.UsuarioDTO;
 
+/**
+ * Classe controladora onde são onde estão mapeados os EndPoints relacionados a classe
+ * usuário na aplicação. 
+ * 
+ * @author Felipe Gustavo
+ *
+ */
+
 
 @RestController
 @RequestMapping("/usuario")
