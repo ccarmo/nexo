@@ -15,7 +15,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import java.util.ArrayList;
 
 /**
- * Classe de configuração do Swagger API.
+ * Classe de configuraçao do Swagger API.
  * 
  * @author Bianca Campos
  *
