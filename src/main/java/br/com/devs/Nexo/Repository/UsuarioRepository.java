@@ -17,7 +17,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	 * @param email
 	 * @return Optional com Usuario unico
 	 * @since 1.0
-	 * @author Fernanda
+	 * @author Fernanda Silva.
 	 */
 	Optional<Usuario> findByEmail(String email);
     
@@ -27,7 +27,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	 * @param nome
 	 * @return Lista de Usuario
 	 * @since 1.0
-	 * @author Fernanda
+	 * @author Fernanda Silva.
 	 */
 	List<Usuario> findAllByNomeContainingIgnoreCase(String nome);
 

@@ -2,7 +2,6 @@ package br.com.devs.Nexo.Controller;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import br.com.devs.Nexo.Repository.PostagemRepository;
 import br.com.devs.Nexo.model.Postagem;
+
+/**
+ * Classe controladora onde são onde estão mapeados os EndPoints relacionados a classe
+ * postagem na aplicação. 
+ * 
+ * @author Fernanda Silva
+ */
 
 
 @RequestMapping("/postagem")
