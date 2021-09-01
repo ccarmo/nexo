@@ -16,6 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import br.com.devs.Nexo.model.Tema;
 import br.com.devs.Nexo.Repository.TemaRepository;
+import br.com.devs.Nexo.Services.TemaServices;
+
+/**
+ * Classe controladora onde são onde estão mapeados os EndPoints relacionados a classe
+ * tema na aplicação. 
+ * 
+ * @author Lucas Queiroz.
+ */
 
 /**
  * Classe controladora onde são onde estão mapeados os EndPoints relacionados a classe
@@ -31,6 +39,10 @@ public class TemaController
 {
 	@Autowired
 	private TemaRepository repository;
+	
+
+	@Autowired
+	private TemaServices temaServices;
 	
 	@GetMapping
 	public ResponseEntity<List<Tema>> getAll()

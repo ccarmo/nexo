@@ -41,6 +41,8 @@ public class Usuario {
 	private Float renda_familiar;
 
 	private String ramo_empresa;
+	
+	private String foto;
 
 	@NotBlank
 	@Email(message = "Digite seu email :")
@@ -54,7 +56,7 @@ public class Usuario {
 	@JsonIgnoreProperties("postagemUsuario")
 	private List<Postagem> postagem;
 
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Tema> tema;
 
@@ -158,6 +160,14 @@ public class Usuario {
 
 	public void setTipo(TipoUsuario tipo) {
 		this.tipo = tipo;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 
 }

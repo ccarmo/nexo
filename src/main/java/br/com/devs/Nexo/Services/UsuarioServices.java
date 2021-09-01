@@ -36,7 +36,6 @@ public class UsuarioServices {
 		});
 	}
 
-
 	public Optional<Object> cadastrarUsuario2(Usuario novoUsuario) {
 		Optional<Usuario> usuario = repositorio.findByEmail(novoUsuario.getEmail());
 		if (usuario.isPresent()) {
@@ -63,6 +62,7 @@ public class UsuarioServices {
 				usuarioParaAutenticar.setNome(usuarioExistente.getNome());
 				usuarioParaAutenticar.setSenha(usuarioExistente.getSenha());
 				usuarioParaAutenticar.setTipo(usuarioExistente.getTipo());
+				usuarioParaAutenticar.setFoto(usuarioExistente.getFoto());
 				return Optional.ofNullable(usuarioParaAutenticar);
 			} else {
 				return Optional.empty();
