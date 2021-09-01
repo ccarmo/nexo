@@ -1,7 +1,6 @@
 package br.com.devs.Nexo.model;
 
 import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,9 +10,19 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
+/**
+ * Classe tema utilizada como entidade para as postagens no Banco de dados.
+ * 
+ * @since 1.0
+ * @author Bianca Campos.
+ *
+ */
+
 @Entity
 @Table(name = "tb_postagem")
 public class Postagem {
@@ -32,6 +41,10 @@ public class Postagem {
 		
 		@Temporal(TemporalType.TIMESTAMP)
 		private Date data = new java.sql.Date(System.currentTimeMillis());
+		
+
+		@PositiveOrZero
+		private int curtidas; // Atributo adicional para contar curtidas;
 		
 		@ManyToOne
 		@JsonIgnoreProperties("listaPostagem")
@@ -71,6 +84,14 @@ public class Postagem {
 
 		public void setData(Date data) {
 			this.data = data;
+		}
+		
+		public int getCurtidas() {
+			return curtidas;
+		}
+
+		public void setCurtidas(int curtidas) {
+			this.curtidas = curtidas;
 		}
 
 		public Usuario getPostagemUsuario() {

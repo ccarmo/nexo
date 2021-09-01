@@ -3,8 +3,17 @@ package br.com.devs.Nexo.model;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-
 import br.com.devs.Nexo.model.utilidades.TipoUsuario;
+
+/**
+ * Classe DTO modelo para Logar e Alterar usuario.
+ * Para login: necessario apenas email e senha como atributos; 
+ * Para Alterar: necessario o id para alterar nome e senha;  
+ * 
+ * @since 1.0
+ * @author Felipe Gustavo
+ *
+ */
 
 public class UsuarioDTO {
 
@@ -22,6 +31,8 @@ public class UsuarioDTO {
 	private String token;
 
 	private TipoUsuario tipo;
+	
+	private String foto;
 
 	public TipoUsuario getTipo() {
 		return tipo;
@@ -69,6 +80,14 @@ public class UsuarioDTO {
 
 	public void setToken(String token) {
 		this.token = token;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 
 }
