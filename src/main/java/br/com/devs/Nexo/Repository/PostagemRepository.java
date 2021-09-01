@@ -7,6 +7,15 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import br.com.devs.Nexo.model.Postagem;
 
+/**
+ * Metodo utilizado para pesquisar coluna titulo da tabela postagem.
+ * 
+ * @param titulo
+ * @return Lista de Postagens
+ * @since 1.0
+ * @author Lucas Queiroz.
+ */
+
 
 /**
  * Metodo utilizado para pesquisar coluna titulo da tabela postagem.

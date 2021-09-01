@@ -24,6 +24,7 @@ public class PostagemServices {
 
 	@Autowired
 	private PostagemRepository postagemRepository;
+
 	
 	public Postagem curtir(Long id) { // regra de negocio para curtir postagem;
 		Postagem postagem = buscarPostagemPeloId(id);

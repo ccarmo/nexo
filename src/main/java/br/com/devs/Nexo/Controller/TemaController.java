@@ -25,6 +25,13 @@ import br.com.devs.Nexo.Services.TemaServices;
  * @author Lucas Queiroz.
  */
 
+/**
+ * Classe controladora onde são onde estão mapeados os EndPoints relacionados a classe
+ * tema na aplicação. 
+ * 
+ * @author Lucas Queiroz
+ */
+
 @RequestMapping("/tema")
 @RestController
 @CrossOrigin("*")

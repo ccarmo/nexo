@@ -40,18 +40,26 @@
 			<optional>true</optional>
 		</dependency>
 
+
+		<!-- dependencia do postGRE
+
       <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
     </dependency> 
+     dependencia do PostGre-->
       
 		<!-- dependencia do MySQL
+   dependencia do MySQL-->
+     
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		dependencia do MySQL-->
+
+		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>

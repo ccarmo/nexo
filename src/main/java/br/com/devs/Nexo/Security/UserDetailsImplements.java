@@ -14,6 +14,14 @@ import br.com.devs.Nexo.model.Usuario;
  *
  */
 
+/**
+ * Classe responsável por anexar os dados do usuário afim de autorizar o acesso.
+ * 
+ * @since 1.0
+ * @author Felipe Gustavo.
+ *
+ */
+
 public class UserDetailsImplements implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
