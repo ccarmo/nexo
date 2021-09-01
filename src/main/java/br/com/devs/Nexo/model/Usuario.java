@@ -37,6 +37,8 @@ public class Usuario {
 	private Float renda_familiar;
 
 	private String ramo_empresa;
+	
+	private String foto;
 
 	@NotBlank
 	@Email(message = "Digite seu email :")
@@ -154,6 +156,14 @@ public class Usuario {
 
 	public void setTipo(TipoUsuario tipo) {
 		this.tipo = tipo;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 
 }
