@@ -11,33 +11,35 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/**
+ * Classe utilizada para criptografia da senha digitada pelo usuário.
+ * 
+ * @since 1.0
+ * @author Felipe Gusstavo.
+ */
+
 @EnableWebSecurity
 public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
-	
+
 	private @Autowired UserDetailsServiceImplements service;
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication()
-		.withUser("admin").password(passwordEncoder().encode("admin")).authorities("ROLE_ADMIN");
-		
-		auth.userDetailsService(service);
+		auth.userDetailsService(userDetailsService());
+		auth.inMemoryAuthentication().withUser("root").password(passwordEncoder().encode("root"))
+				.authorities("ROLE_USER");
 	}
-	
+
 	@Bean
 	public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-	
+		return new BCryptPasswordEncoder();
+	}
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-		.antMatchers(HttpMethod.POST, "/usuario/cadastrar").permitAll()
-		.antMatchers(HttpMethod.PUT, "/usuario/entrar").permitAll()
- 		.anyRequest().authenticated()
- 		.and().httpBasic()
- 		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
- 		.and().cors()
- 		.and().csrf().disable();
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/usuario/cadastrar").permitAll()
+				.antMatchers(HttpMethod.PUT, "/usuario/entrar").permitAll().anyRequest().authenticated().and()
+				.httpBasic().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+				.cors().and().csrf().disable();
 	}
 }

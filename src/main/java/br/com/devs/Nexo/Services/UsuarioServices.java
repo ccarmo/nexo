@@ -1,9 +1,7 @@
 package br.com.devs.Nexo.Services;
 
 import java.nio.charset.Charset;
-
 import java.util.Optional;
-
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -11,6 +9,16 @@ import org.springframework.stereotype.Service;
 import br.com.devs.Nexo.model.Usuario;
 import br.com.devs.Nexo.model.UsuarioDTO;
 import br.com.devs.Nexo.Repository.UsuarioRepository;
+
+/**
+ * Método utilizado para cadastrar um usuario no banco de dados, o mesmo é
+ * responsavel por retornar vazio caso Usuario exista.
+ * 
+ * @param novoUsuario do tipo Usuario
+ * @return Usuario Criado quando não existir no banco.
+ * @since 1.0
+ * @author Carlos Henrique.
+ */
 
 @Service
 public class UsuarioServices {
@@ -27,7 +35,6 @@ public class UsuarioServices {
 			return Optional.ofNullable(repositorio.save(novoUsuario));
 		});
 	}
-
 
 	public Optional<Object> cadastrarUsuario2(Usuario novoUsuario) {
 		Optional<Usuario> usuario = repositorio.findByEmail(novoUsuario.getEmail());
@@ -55,6 +62,7 @@ public class UsuarioServices {
 				usuarioParaAutenticar.setNome(usuarioExistente.getNome());
 				usuarioParaAutenticar.setSenha(usuarioExistente.getSenha());
 				usuarioParaAutenticar.setTipo(usuarioExistente.getTipo());
+				usuarioParaAutenticar.setFoto(usuarioExistente.getFoto());
 				return Optional.ofNullable(usuarioParaAutenticar);
 			} else {
 				return Optional.empty();

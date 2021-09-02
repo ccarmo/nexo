@@ -4,9 +4,23 @@ import java.util.Collection;
 import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import br.com.devs.Nexo.model.Usuario;
-import br.com.devs.Nexo.model.UsuarioDTO;
+
+/**
+ * Classe responsável por anexar os dados do usuário afim de autorizar o acesso.
+ * 
+ * @since 1.0
+ * @author Felipe Gustavo.
+ *
+ */
+
+/**
+ * Classe responsável por anexar os dados do usuário afim de autorizar o acesso.
+ * 
+ * @since 1.0
+ * @author Felipe Gustavo.
+ *
+ */
 
 public class UserDetailsImplements implements UserDetails {
 

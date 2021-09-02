@@ -1,7 +1,6 @@
 package br.com.devs.Nexo.model;
 
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -15,10 +14,15 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import br.com.devs.Nexo.model.utilidades.TipoUsuario;
+
+/**
+ * Classe Usuario utilizada como entidade para registrar usuarios no Banco de dados.
+ * @since 1.0
+ * @author Carlos Henrique
+ *
+ */
 
 @Entity
 @Table(name = "tb_usuario")
@@ -37,6 +41,8 @@ public class Usuario {
 	private Float renda_familiar;
 
 	private String ramo_empresa;
+	
+	private String foto;
 
 	@NotBlank
 	@Email(message = "Digite seu email :")
@@ -50,7 +56,7 @@ public class Usuario {
 	@JsonIgnoreProperties("postagemUsuario")
 	private List<Postagem> postagem;
 
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Tema> tema;
 
@@ -154,6 +160,14 @@ public class Usuario {
 
 	public void setTipo(TipoUsuario tipo) {
 		this.tipo = tipo;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 
 }

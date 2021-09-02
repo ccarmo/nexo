@@ -1,7 +1,6 @@
 package br.com.devs.Nexo.model;
 
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,8 +11,15 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+/**
+ * Classe tema utilizada como entidade para os temas no Banco de dados.
+ * 
+ * @since 1.0
+ * @author Bianca Campos
+ *
+ */
 
 @Entity
 @Table(name = "tb_tema")
