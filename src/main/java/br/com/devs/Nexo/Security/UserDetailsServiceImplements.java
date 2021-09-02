@@ -9,6 +9,15 @@ import org.springframework.stereotype.Service;
 import br.com.devs.Nexo.Repository.UsuarioRepository;
 import br.com.devs.Nexo.model.Usuario;
 
+
+/**
+ * Classe utilizada para validação do usuário no banco de dados.
+ * 
+
+ * @since 1.0
+ * @author Felipe Gustavo.
+ */
+
 @Service
 public class UserDetailsServiceImplements implements UserDetailsService {
 	
@@ -21,7 +30,7 @@ public class UserDetailsServiceImplements implements UserDetailsService {
 		if (usuario.isPresent()) {
 			return new UserDetailsImplements(usuario.get());
 		} else {
-			throw new UsernameNotFoundException(username + " not found.");
+			throw new UsernameNotFoundException(username + " não encontrado.");
 		}
 	}
 

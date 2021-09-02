@@ -7,6 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * Classe principal do projeto.
+ * 
+ * @author Carlos Henrique
+ *
+ */
+
 @SpringBootApplication
 @RestController
 @RequestMapping("/")
