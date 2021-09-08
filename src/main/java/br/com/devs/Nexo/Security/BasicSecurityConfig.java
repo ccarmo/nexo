@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * Classe utilizada para criptografia da senha digitada pelo usuário.
@@ -19,7 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  */
 
 @EnableWebSecurity
-public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
+public class BasicSecurityConfig extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
 
 	private @Autowired UserDetailsServiceImplements service;
 
@@ -42,4 +44,13 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 				.httpBasic().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 				.cors().and().csrf().disable();
 	}
+	
+	@Override
+    public void addCorsMappings(CorsRegistry registry) {
+
+        registry.addMapping("/**")
+                .allowedOrigins("*")
+                .allowedMethods("GET", "POST", "PUT",
+                "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
+    }
 }
