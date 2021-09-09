@@ -27,9 +27,12 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter implements
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService());
+		
 		auth.inMemoryAuthentication().withUser("root").password(passwordEncoder().encode("root"))
 				.authorities("ROLE_USER");
+		
+		auth.userDetailsService(service);
+		
 	}
 
 	@Bean
@@ -39,10 +42,16 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter implements
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/usuario/cadastrar").permitAll()
-				.antMatchers(HttpMethod.PUT, "/usuario/entrar").permitAll().anyRequest().authenticated().and()
-				.httpBasic().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-				.cors().and().csrf().disable();
+		http.authorizeRequests()
+		.antMatchers(HttpMethod.POST, "/usuario/cadastrar").permitAll()
+		.antMatchers(HttpMethod.PUT, "/usuario/entrar").permitAll()
+		.antMatchers(HttpMethod.OPTIONS).permitAll()
+		.anyRequest().authenticated()
+		.and().httpBasic()
+		.and().sessionManagement()
+		.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+		.and().cors()
+		.and().csrf().disable();
 	}
 	
 	@Override
