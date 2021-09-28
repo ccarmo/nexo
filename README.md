@@ -31,7 +31,7 @@ O site contém:
 
 ## 🔗 Links
 
-
+https://projetonexo.netlify.app/home
 
 ## 📝 Licença
 
