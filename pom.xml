@@ -42,12 +42,12 @@
 
 
 		<!-- dependencia do postGRE
-
+     
       <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
     </dependency> 
-     dependencia do PostGre-->
+dependencia do PostGre-->
       
 		<!-- dependencia do MySQL
    dependencia do MySQL-->

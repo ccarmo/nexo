@@ -20,11 +20,11 @@ public class UsuarioDTO {
 	private Long id;
 
 	private String nome;
-
-	@NotBlank(message = "Necessario Email")
-	@Email(message = "Necessario Email")
+    
+	@Email
 	private String email;
-
+	
+    @NotBlank
 	@Size(min = 5, max = 100, message = "Minímo 5 caracteres")
 	private String senha;
 
