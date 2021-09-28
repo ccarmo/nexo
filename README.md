@@ -1,5 +1,5 @@
 <h1 align="center">
-    <b>Projeto Nexo</b>.com.br
+    <b>Projeto Nexo</b>
 </h1>
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
 </p>
