@@ -35,7 +35,7 @@ https://projetonexo.netlify.app/home
 
 ## 📝 Licença
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Esse projeto está sob a licença MIT. 
 
 ## 💻 Equipe de desenvolvimento
 
