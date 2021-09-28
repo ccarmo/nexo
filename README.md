@@ -1,50 +1,37 @@
 <h1 align="center">
-    <b>LennonAlves</b>.com.br
+    <b>Projeto Nexo</b>.com.br
 </h1>
-
-<h4 align="center">
-    ☕ Code and coffee
-</h4>
-
-<p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/lennonalvesdias/lennonalvesdias.github.io.svg">
-
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/lennonalvesdias/lennonalvesdias.github.io.svg">
-  
-  <a href="https://github.com/lennonalvesdias/lennonalvesdias.github.io/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/lennonalvesdias/cli.svg">
-  </a>
-
-  <a href="https://github.com/lennonalvesdias/lennonalvesdias.github.io/issues">
-    <img alt="Repository issues" src="https://img.shields.io/github/issues/lennonalvesdias/lennonalvesdias.github.io.svg">
-  </a>
-
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
 </p>
 
 ## 💻 Aplicação
 
-Foi desenvolvida como site e portfolio pessoal utilizando as tecnologias listadas abaixo. O layout foi baseado em um modelo gratuito do _Creative-Tim_.
+A plataforma Nexo foi criada com o objetivo de criar uma rede social, onde proporcione aos usuários uma comunicação mais clara, rápida e objetiva, focados em proporcionar os melhores resultados aos jovens que buscam por uma iniciação e mediação empregáticia.
 
 O site contém:
 
-* Formação
-* Descrição
-* Últimos Artigos (_Medium_)
-* Curriculum
-* Extra - Portfólio Data Science
-* Certificados
-* Links de Redes Sociais
+* Informações sobre a plataforma;
+* Links para acesso a teste de personalidade e de teste vocacional;
+* Depoimentos;
+* Informações sobre a equipe de desenvolvimento;
+* Possibilidade de cadastro de candidatos e empresas;
+* Login de acesso à plataforma;
+* Ferramentas de inserção de postagens, sua edição e sua exclusão;
+* Ferramentas de inserção de temas, sua edição e sua exclusão;
+* Pesquisa das postagens por tema e por palavras dispostas no título;
+* Possibilidade de enviar diretamente ao usuário que criou a postagem;
+
 
 ## 🚀 Tecnologias
 
-* Angular 8
-* Docker
+* Spring Framework
+* MySQL 8.0
+* Java 11
+* Swagger
 
 ## 🔗 Links
 
-* [Creative Tim](https://www.creative-tim.com/)
-* [Medium](https://medium.com/@lennonalvesdias)
+
 
 ## 📝 Licença
 
