@@ -19,7 +19,7 @@ O site contém:
 * Ferramentas de inserção de postagens, sua edição e sua exclusão;
 * Ferramentas de inserção de temas, sua edição e sua exclusão;
 * Pesquisa das postagens por tema e por palavras dispostas no título;
-* Possibilidade de enviar diretamente ao usuário que criou a postagem;
+* Possibilidade de enviar email diretamente ao usuário que criou a postagem;
 
 
 ## 🚀 Tecnologias
