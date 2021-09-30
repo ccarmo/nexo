@@ -6,7 +6,7 @@
 
 ## 💻 Aplicação
 
-A plataforma Nexo foi criada com o objetivo de criar uma rede social, onde proporcione aos usuários uma comunicação mais clara, rápida e objetiva, focados em proporcionar os melhores resultados aos jovens que buscam por uma iniciação e mediação empregáticia.
+A plataforma Nexo foi criada com o objetivo de criar uma rede social, onde proporcione aos usuários uma comunicação mais clara, rápida e objetiva, focados em proporcionar os melhores resultados aos jovens que buscam por uma iniciação e mediação empregatícia.
 
 O site contém:
 
